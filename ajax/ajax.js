@@ -1,6 +1,6 @@
 $.ajax({
     url:'http://localhost:3000/api/account',
-    type:'POST',
+    type:'GET',
     data:{
         _id : String,
         username: String,
@@ -8,6 +8,7 @@ $.ajax({
     }
 })
 .then(function(data){
+    console.log(data); //dung r ma nhi
     var ul = $('<ul></ul>')
 
     for (let i = 0; i < data.length; i++) {
@@ -18,11 +19,11 @@ $.ajax({
         var password = $(`<p> ${x.password}</p>`)
         
         var li = $(`
-        <li> _ID: ${id} / username: ${username} / password: ${password}</li>                    
+        <li> _ID: ${x._id}</li>
+        <li> username: ${username} / password: ${password}</li>                    
         `)
 
         $(ul).append(li)
-
         $('body').append(ul)            
     }
 })

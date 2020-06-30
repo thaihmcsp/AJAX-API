@@ -122,7 +122,7 @@ router.post('/',function(req,res,next){
     })
     .then(function(data){
         if(data){
-            res.json('username ' + username+ ' da ton tai')
+            res.json('username ' + username+ ' da ton tai') // vì post là tạo, mà tạo có acc r thì nó báo lỗi này mà ?? , Viết ra k nhớ à
         }else{
             bcrypt.hash(password, saltRounds, function(err, hash) {
                 return AccountModel.create({
@@ -133,7 +133,7 @@ router.post('/',function(req,res,next){
         }
     })
     .then(function(data){
-        res.json('Xin chao' + username)
+        res.json('Xin chao ' + username)
     })
     .catch(function(err){
         res.status(500).json('loi server')
