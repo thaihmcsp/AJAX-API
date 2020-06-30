@@ -6,9 +6,10 @@ mongoose.connect('mongodb://localhost/Register', {
 });
 
 const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
  
 const AccountSchema = new Schema({
-  _id: String,
+  _id: ObjectId,
   username: String,
   password: String,
 },{collection:'register'});
